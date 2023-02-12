@@ -1,0 +1,48 @@
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Analog Clock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rancho&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="clock">
+      <div class="number">
+        <span style="--i:0;"><b>12</b></span>
+        <span style="--i:1;"><b>3</b></span>
+        <span style="--i:2;"><b>6</b></span>
+        <span style="--i:3;"><b>9</b></span>
+        <div class="circle" id="hr"><i></i></div>
+        <div class="circle" id="mn"><i></i></div>
+        <div class="circle" id="sc"><i></i></div>
+      </div>
+    </div>
+    <script>
+      let hr = document.querySelector('#hr');
+      let mn = document.querySelector('#mn');
+      let sc = document.querySelector('#sc');
+
+      setInterval(()=>{
+        let day = new Date();
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * 6;
+        let ss = day.getSeconds() * 6;
+
+        hr.style.transform = 'rotateZ(' + hh + (mm/12) + 'deg)' ;
+        mn.style.transform = 'rotateZ(' + mm + 'deg)' ;
+        sc.style.transform = 'rotateZ(' + ss + 'deg)' ;
+      })
+
+    </script>
+  </body>
+
+  </html>
