@@ -26,23 +26,22 @@
         <div class="circle" id="sc"><i></i></div>
       </div>
     </div>
-    <script>
-      let hr = document.querySelector('#hr');
-      let mn = document.querySelector('#mn');
-      let sc = document.querySelector('#sc');
+<script>
+  let hr = document.querySelector('#hr');
+  let mn = document.querySelector('#mn');
+  let sc = document.querySelector('#sc');
 
-      setInterval(()=>{
-        let day = new Date();
-        let hh = day.getHours() * 25;
-        let mm = day.getMinutes() * 6;
-        let ss = day.getSeconds() * 6;
+  setInterval(() => {
+    let day = new Date();
+    let hh = (day.getUTCHours() - 6) * 30; // adjust for UTC-6 offset and 12-hour clock
+    let mm = day.getUTCMinutes() * 6;
+    let ss = day.getUTCSeconds() * 6;
 
-        hr.style.transform = 'rotateZ(' + hh + (mm/12) + 'deg)' ;
-        mn.style.transform = 'rotateZ(' + mm + 'deg)' ;
-        sc.style.transform = 'rotateZ(' + ss + 'deg)' ;
-      })
-
-    </script>
+    hr.style.transform = `rotateZ(${hh + mm / 12}deg)`;
+    mn.style.transform = `rotateZ(${mm}deg)`;
+    sc.style.transform = `rotateZ(${ss}deg)`;
+  }, 1000);
+</script>
   </body>
 
   </html>
